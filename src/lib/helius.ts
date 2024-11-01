@@ -2,6 +2,22 @@
 const HELIUS_API_KEY = process.env.NEXT_PUBLIC_HELIUS_API_KEY;
 const RPC_URL = `https://rpc.helius.xyz/?api-key=${HELIUS_API_KEY}`;
 
+// Add proper typing
+interface TokenAccount {
+  account: {
+    data: {
+      parsed: {
+        info: {
+          mint: string;
+          tokenAmount: {
+            amount: string;
+          };
+        };
+      };
+    };
+  };
+}
+
 export const checkTokenBalance = async (walletAddress: string, tokenAddress: string) => {
   try {
     console.log('Checking balance for wallet:', walletAddress);
@@ -33,7 +49,7 @@ export const checkTokenBalance = async (walletAddress: string, tokenAddress: str
     console.log('Full API Response:', data);
 
     // Check for the token in the accounts
-    const hasToken = data.result?.value?.some((account: any) => {
+    const hasToken = data.result?.value?.some((account: TokenAccount) => {
       const tokenData = account.account.data.parsed.info;
       const isCorrectMint = tokenData.mint === tokenAddress;
       const balance = parseFloat(tokenData.tokenAmount?.amount || '0');

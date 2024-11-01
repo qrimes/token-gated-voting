@@ -5,16 +5,24 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Textarea } from "@/components/ui/textarea";
+import Image from 'next/image';
 
 interface VotingComponentProps {
   walletAddress: string;
+}
+
+interface VoteSubmission {
+  walletAddress: string;
+  answer: string;
+  questionId: string;
+  timestamp: number;
 }
 
 export default function VotingComponent({ walletAddress }: VotingComponentProps) {
   const [voted, setVoted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [answer, setAnswer] = useState('');
-  const [submissions, setSubmissions] = useState<any[]>([]);
+  const [submissions, setSubmissions] = useState<VoteSubmission[]>([]);
   const [loading, setLoading] = useState(false);
 
   const votingQuestion = {
@@ -80,10 +88,12 @@ export default function VotingComponent({ walletAddress }: VotingComponentProps)
       <Card>
         <CardHeader>
           <div className="flex items-center gap-4">
-            <img 
+            <Image 
               src="/pawg-anime.png" 
               alt="PAWG Mascot" 
               className="h-32 w-32 object-contain"
+              width={100}
+              height={100}
             />
           </div>
         </CardHeader>

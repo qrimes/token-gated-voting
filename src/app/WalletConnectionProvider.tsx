@@ -19,8 +19,11 @@ export default function WalletConnectionProvider({ children }: WalletConnectionP
   );
 
   const wallets = useMemo(
-    () => [new PhantomWalletAdapter()],
-    [network]
+    () => [
+      new PhantomWalletAdapter(),
+      // other wallets...
+    ],
+    []
   );
 
   return (
