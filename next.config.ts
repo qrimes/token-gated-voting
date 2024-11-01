@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import { withCloudflare } from '@cloudflare/next-on-pages/custom-build-config'
 
 const config: NextConfig = {
   env: {
@@ -8,4 +9,5 @@ const config: NextConfig = {
 
 console.log('Config loaded. Token available:', !!process.env.CLOUDFLARE_API_TOKEN);
 
-export default config
+// Export the config wrapped with the Cloudflare adapter
+export default withCloudflare(config)
