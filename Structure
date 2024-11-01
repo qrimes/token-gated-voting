@@ -1,0 +1,13 @@
+token-gated-voting/
+├── .env.local                    # Environment variables
+├── public/
+├── src/
+│   ├── app/
+│   │   ├── page.tsx             # Main page
+│   │   ├── layout.tsx           # Root layout
+│   │   └── providers.tsx        # Wallet providers
+│   ├── components/
+│   │   ├── token-gate-auth.tsx  # Token gate authentication
+│   │   └── voting-component.tsx # Voting interface
+│   └── lib/
+│       └── helius.ts            # Heliu

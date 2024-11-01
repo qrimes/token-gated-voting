@@ -1,0 +1,8 @@
+name = "token-gated-voting"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "VOTES"
+id = "8bd3fe27eaa445928ba9e6e704dc358e"
+preview_id = "your-preview-namespace-id"

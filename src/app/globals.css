@@ -1,21 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Notable&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(17, 17, 17);
+  color: white;
+}
+
+.wallet-adapter-button {
+  background-color: rgb(79, 70, 229) !important;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  padding: 0 24px;
+  transition: all 0.15s ease-in-out;
+}
+
+.wallet-adapter-button:not([disabled]):hover {
+  background-color: rgb(67, 56, 202) !important;
+}
+
+.wallet-adapter-button:disabled {
+  background-color: rgb(55, 65, 81) !important;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.wallet-adapter-button-trigger {
+  background-color: rgb(79, 70, 229) !important;
+}
+
+.gothic-text {
+  font-family: 'Notable', sans-serif;
+  letter-spacing: 0.05em;
 }
